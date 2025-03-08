@@ -17,8 +17,11 @@ class StackedLocatorContentGenerator
   });
   @override
   String generate() {
-    final hasRouterService = dependencies
-        .any((depdenency) => depdenency.className == 'RouterService');
+    final hasRouterService = dependencies.any(
+      (dependency) =>
+          (dependency.abstractedTypeClassName ?? dependency.className) ==
+          'RouterService',
+    );
     writeLine(
         "// ignore_for_file: public_member_api_docs, implementation_imports, depend_on_referenced_packages");
 
